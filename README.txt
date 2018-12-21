@@ -1,6 +1,6 @@
 Conner Delahanty
 Sophomore, Johns Hopkins University
-Winder 2018
+Winter 2018
 
 The purpose of this respository is to experiment with some ideas learned in CS.601.231, Automata and Computation 
 Theory. Principal goals are to create conversion algorithms between NFA, Regular Expressions, and DFAs and to do
