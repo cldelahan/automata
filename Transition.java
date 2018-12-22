@@ -1,6 +1,6 @@
 // Conner Delahanty
 // The goal of this is to create a transition between two states
-public class Transition {
+public class Transition implements Comparable{
 
     private String transition; // String describing transition between two states
     private State from;
@@ -57,6 +57,31 @@ public class Transition {
      */
     public void setTransition(String transition) {
         this.transition = transition;
+    }
+
+    @Override
+    public int compareTo(Object newTran) {
+        Transition t = (Transition) newTran;
+        // sort by From, then transition value, then To
+        int compareFrom = this.getFrom().toString().compareTo(t.getFrom().toString());
+        int compareTransition = this.getTransition().compareTo(t.getTransition());
+        // using DFAs, the compareTo should never have to be used. 
+        // including it for more general instances (NFA for example)
+        int compareTo = this.getTo().toString().compareTo(t.getTo().toString());
+        if (compareFrom != 0) {
+            return compareFrom;
+        }
+        if (compareTransition != 0) {
+            return compareTransition;
+        }
+        if (compareTo != 0) {
+            return compareTo;
+        }
+        return 0;
+    }
+
+    public boolean equals(Transition t) {
+        return this.compareTo(t) == 0;
     }
 
     public String toString() {
